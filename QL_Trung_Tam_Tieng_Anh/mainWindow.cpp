@@ -1,4 +1,4 @@
-﻿#include<iostream>
+#include<iostream>
 #include<string.h>
 using namespace std;
 #define MaxBh 50
@@ -531,6 +531,7 @@ void HienThiTrungTam() {
     cout << "Nhấn phím bất kỳ để quay lại menu chính...\n";
     cin.ignore();
     cin.get();
+    
 }
 void MenuHocVien(DS_HocVien& DSHV);
 void MenuGiangVien(DS_GiangVien& DSGV);
@@ -540,7 +541,7 @@ void MenuThongKe(DS_HocVien DSHV, DS_GiangVien DSGV, DS_KhoaHoc DSKH);
 //cau truc menu chinh
 void MenuChinh(DS_HocVien& DSHV, DS_GiangVien& DSGV, DS_KhoaHoc& DSKH) {
     int choice;
-    do {
+    do { system"cls";
         cout << "\n========== MENU CHÍNH ==========\n";
         cout << "1. Học viên\n";
         cout << "2. Giảng viên\n";
@@ -568,7 +569,7 @@ void MenuChinh(DS_HocVien& DSHV, DS_GiangVien& DSGV, DS_KhoaHoc& DSKH) {
 //cau truc menu hoc vien
 void MenuHocVien(DS_HocVien& DSHV) {
     int choice;
-    do {
+    do { system"cls";
         cout << "\n=== MENU HỌC VIÊN ===\n";
         cout << "1. Hiển thị danh sách học viên\n";
         cout << "2. Thêm học viên\n";
@@ -628,7 +629,7 @@ void MenuHocVien(DS_HocVien& DSHV) {
 //cau truc menu giang vien
 void MenuGiangVien(DS_GiangVien& DSGV) {
     int choice;
-    do {
+    do { system"cls";
         cout << "\n=== MENU GIẢNG VIÊN ===\n";
         cout << "1. Hiển thị danh sách giảng viên\n";
         cout << "2. Thêm giảng viên\n";
@@ -689,7 +690,7 @@ void MenuGiangVien(DS_GiangVien& DSGV) {
 //cau truc menu khoa hoc
 void MenuKhoaHoc(DS_KhoaHoc& DSKH, DS_GiangVien& DSGV) {
     int choice;
-    do {
+    do { system"cls";
         cout << "\n=== MENU KHÓA HỌC ===\n";
         cout << "1. Hiển thị danh sách khóa học\n";
         cout << "2. Thêm khóa học\n";
@@ -781,7 +782,7 @@ void MenuKhoaHoc(DS_KhoaHoc& DSKH, DS_GiangVien& DSGV) {
 //cau truc menu thong ke
 void MenuThongKe(DS_HocVien DSHV, DS_GiangVien DSGV, DS_KhoaHoc DSKH) {
     int choice;
-    do {
+    do { system"cls";
         cout << "\n=== MENU THỐNG KÊ ===\n";
         cout << "1. Hiển thị tổng quan\n";
         cout << "2. Hiển thị doanh thu hàng tháng\n";
@@ -853,6 +854,9 @@ int main() {
     initHocVien(DSHV);
     initGV(DSGV);
     initKhoaHoc(DSKH);
+    insertGV(DSGV, InitTTCN(1, "Nguyen Van A", 30, 123456789, "0123456789", "Thac si"), 20000000);
+    insertHV(DSHV, InitTTCN(1, "Nguyen Van B", 20, 123456789, "0123456789", "Sinh vien"));
+    insertKh(DSKH, 1, "Toeic 450", 1000000, 10, 450, "Khoa hoc Toeic cap toc", findGVbyMaSo(DSGV, 1), NULL, NULL);
 
     MenuChinh(DSHV,DSGV,DSKH);
     // Giải phóng bộ nhớ trước khi kết thúc chương trình
