@@ -508,6 +508,12 @@ bool deleteHvKh(DS_HocVien_KH& DS_Hv_Kh, N_HocVien_KH HvKh) {
     }
     return false;
 }
+// Tính Toán Số Lượng Học Viên Khóa 
+int SoLuongHVKH(DS_HocVien_KH DSHV) {
+    if (DSHV == NULL) return 0;
+    return 1 + SoLuongHVKH(DSHV->Next);
+}
+
 //ham hien thi trung tamtam
 void HienThiTrungTam() {
     cout << "\n========== TRUNG TÂM TIẾNG ANH TOEIC ==========\n";
@@ -527,6 +533,10 @@ void HienThiTrungTam() {
     cin.get();
 }
 void MenuHocVien(DS_HocVien& DSHV);
+void MenuGiangVien(DS_GiangVien& DSGV);
+void MenuKhoaHoc(DS_KhoaHoc& DSKH, DS_GiangVien& DSGV);
+void MenuThongKe(DS_HocVien DSHV, DS_GiangVien DSGV, DS_KhoaHoc DSKH);
+
 //cau truc menu chinh
 void MenuChinh(DS_HocVien& DSHV, DS_GiangVien& DSGV, DS_KhoaHoc& DSKH) {
     int choice;
@@ -804,7 +814,7 @@ void MenuThongKe(DS_HocVien DSHV, DS_GiangVien DSGV, DS_KhoaHoc DSKH) {
             N_KhoaHoc P = DSKH;
             while (P != NULL) {
                 if (P->trang_thai == true) { // Chỉ tính các khóa học đã hoàn thành
-                    doanhThu += P->gia_tien * SoLuongHV(P->Ds_hv_kh);
+                    doanhThu += P->gia_tien * SoLuongHVKH(P->Ds_hv_kh);
                 }
                 P = P->Next;
             }
@@ -844,7 +854,7 @@ int main() {
     initGV(DSGV);
     initKhoaHoc(DSKH);
 
-    MenuChinh();
+    MenuChinh(DSHV,DSGV,DSKH);
     // Giải phóng bộ nhớ trước khi kết thúc chương trình
     GiaiPhongBoNho(DSHV, DSGV, DSKH);
     return 0;
