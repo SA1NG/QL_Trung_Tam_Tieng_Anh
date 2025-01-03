@@ -528,7 +528,7 @@ void HienThiTrungTam() {
 }
 void MenuHocVien(DS_HocVien& DSHV);
 //cau truc menu chinh
-void MenuChinh() {
+void MenuChinh(DS_HocVien& DSHV, DS_GiangVien& DSGV, DS_KhoaHoc& DSKH) {
     int choice;
     do {
         cout << "\n========== MENU CHÍNH ==========\n";
@@ -542,16 +542,19 @@ void MenuChinh() {
         cin >> choice;
 
         switch (choice) {
-        case 1: MenuHocVien(); break;
-        case 2: MenuGiangVien(); break;
-        case 3: MenuKhoaHoc(); break;
-        case 4: MenuThongKe(); break;
+        case 1: MenuHocVien(DSHV); break;
+        case 2: MenuGiangVien(DSGV); break;
+        case 3: MenuKhoaHoc(DSKH, DSGV); break;
+        case 4: MenuThongKe(DSHV, DSGV, DSKH); break;
         case 5: HienThiTrungTam(); break;
         case 6: cout << "Thoát chương trình...\n"; break;
         default: cout << "Lựa chọn không hợp lệ!\n";
         }
     } while (choice != 6);
 }
+
+
+
 //cau truc menu hoc vien
 void MenuHocVien(DS_HocVien& DSHV) {
     int choice;
