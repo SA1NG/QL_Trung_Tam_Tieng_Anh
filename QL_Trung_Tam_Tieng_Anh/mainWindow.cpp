@@ -854,9 +854,37 @@ int main() {
     initHocVien(DSHV);
     initGV(DSGV);
     initKhoaHoc(DSKH);
+    // Add Giảng Viên
     insertGV(DSGV, InitTTCN(1, "Nguyen Van A", 30, 123456789, "0123456789", "Thac si"), 20000000);
+    insertGV(DSGV, InitTTCN(2, "Tran Thi B", 35, 987654321, "0987654321", "Tien si"), 22000000);
+    insertGV(DSGV, InitTTCN(3, "Le Van C", 40, 112233445, "0122334455", "Thac si"), 21000000);
+    insertGV(DSGV, InitTTCN(4, "Pham Thi D", 45, 223344556, "0988776655", "Tien si"), 23000000);
+    insertGV(DSGV, InitTTCN(5, "Nguyen Van E", 50, 334455667, "0123445566", "Thac si"), 24000000);
+    insertGV(DSGV, InitTTCN(6, "Hoang Thi F", 33, 445566778, "0988997766", "Tien si"), 25000000);
+    insertGV(DSGV, InitTTCN(7, "Dang Van G", 38, 556677889, "0123456790", "Thac si"), 22000000);
+    insertGV(DSGV, InitTTCN(8, "Tran Thi H", 42, 667788990, "0987654324", "Tien si"), 23000000);
+
+    // Add Học Viên
     insertHV(DSHV, InitTTCN(1, "Nguyen Van B", 20, 123456789, "0123456789", "Sinh vien"));
+    insertHV(DSHV, InitTTCN(2, "Le Thi C", 22, 234567891, "0987654321", "Sinh vien"));
+    insertHV(DSHV, InitTTCN(3, "Pham Van D", 23, 345678912, "0123456781", "Sinh vien"));
+    insertHV(DSHV, InitTTCN(4, "Tran Thi E", 24, 456789123, "0987654322", "Sinh vien"));
+    insertHV(DSHV, InitTTCN(5, "Hoang Van F", 25, 567891234, "0123456782", "Sinh vien"));
+    insertHV(DSHV, InitTTCN(6, "Nguyen Thi G", 26, 678912345, "0987654323", "Sinh vien"));
+    insertHV(DSHV, InitTTCN(7, "Dang Van H", 27, 789123456, "0123456783", "Sinh vien"));
+    insertHV(DSHV, InitTTCN(8, "Tran Thi I", 28, 891234567, "0987654324", "Sinh vien"));
+    insertHV(DSHV, InitTTCN(9, "Hoang Van J", 29, 912345678, "0123456784", "Sinh vien"));
+    insertHV(DSHV, InitTTCN(10, "Nguyen Thi K", 30, 123456780, "0987654325", "Sinh vien"));
+
+    // Add Khóa Học
     insertKh(DSKH, 1, "Toeic 450", 1000000, 10, 450, "Khoa hoc Toeic cap toc", findGVbyMaSo(DSGV, 1), NULL, NULL);
+    insertKh(DSKH, 2, "IELTS 6.5", 2000000, 15, 6.5, "Khoa hoc IELTS cap toc", findGVbyMaSo(DSGV, 2), NULL, NULL);
+    insertKh(DSKH, 3, "Giao Tiep Co Ban", 1500000, 12, 0, "Khoa hoc Giao Tiep", findGVbyMaSo(DSGV, 3), NULL, NULL);
+    insertKh(DSKH, 4, "Toeic 600", 1200000, 12, 600, "Khoa hoc Toeic nang cao", findGVbyMaSo(DSGV, 4), NULL, NULL);
+    insertKh(DSKH, 5, "IELTS 7.0", 2500000, 20, 7.0, "Khoa hoc IELTS nang cao", findGVbyMaSo(DSGV, 5), NULL, NULL);
+    insertKh(DSKH, 6, "Giao Tiep Nang Cao", 1800000, 14, 0, "Khoa hoc Giao Tiep nang cao", findGVbyMaSo(DSGV, 6), NULL, NULL);
+    insertKh(DSKH, 7, "Toeic 750", 1400000, 14, 750, "Khoa hoc Toeic nang cao", findGVbyMaSo(DSGV, 7), NULL, NULL);
+    insertKh(DSKH, 8, "IELTS 8.0", 3000000, 25, 8.0, "Khoa hoc IELTS nang cao", findGVbyMaSo(DSGV, 8), NULL, NULL);
 
     MenuChinh(DSHV,DSGV,DSKH);
     // Giải phóng bộ nhớ trước khi kết thúc chương trình
